@@ -13,7 +13,7 @@
   margin-right: 40px;
   margin-top: 0px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .card__image {
