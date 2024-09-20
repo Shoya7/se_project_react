@@ -8,7 +8,7 @@ import Main from "../../components/Main/Main.jsx";
 import Profile from "../../components/Profile/Profile.jsx";
 import ItemModal from "../../components/ItemModal/ItemModal.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
-import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext.jsx";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.jsx";
 import AddItemModal from "../../components/AddItemModal/AddItemModal.jsx";
 import { getItems, addItem, deleteItem } from "../../utils/api.js";
 import DeleteModal from "../DeleteModal/DeleteModal.jsx";
