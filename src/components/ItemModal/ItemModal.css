@@ -1,23 +1,57 @@
 .modal__content_type_image {
-  background-color: #ffffff;
+  background-color: white;
   padding: 0;
-}
-
-.modal__image {
+  position: relative;
+  margin: 0 auto;
+  border-radius: 10px;
+  max-width: 498px;
+  box-sizing: border-box;
   width: 100%;
-  border-radius: 2% 2% 0 0;
 }
 
-.modal__caption {
-  margin-top: 20px;
-  margin-left: 32px;
-  margin-bottom: 0;
-  font-size: 20px;
+.modal__footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 10px;
+  padding: 0px;
 }
 
 .modal__weather {
-  margin-left: 32px;
-  margin-bottom: 32px;
   margin-top: 12px;
+  margin-bottom: 32px;
+  margin-left: 32px;
+  padding: 0px;
+}
+
+.modal__caption {
+  margin: 20px 0px 0px 32px;
+  font-family: Cabinet Grotesk;
   font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+}
+
+.modal__image {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px 10px 0 0;
+}
+
+.modal__delete {
+  position: relative;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: rgba(255, 77, 0, 1);
+  margin: 20px 0px 0px 32px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  grid-column: 2/3;
+  grid-row: 1;
 }

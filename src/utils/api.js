@@ -1,4 +1,8 @@
-const baseUrl = "http://localhost:3000";
+const baseUrl = "http://localhost:3001";
+
+export function checkResponse(res) {
+  return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+}
 
 const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error:${res.status}`);

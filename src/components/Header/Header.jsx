@@ -1,10 +1,15 @@
 import "./Header.css";
-import logo from "../../assets/wtwrLogo.svg";
-import avatar from "../../assets/UserLogo.png";
+import logo from "../../assets/Logo.png";
+import avatar from "../../assets/avatar.png";
 import { Link } from "react-router-dom";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({
+  handleAddClick,
+  weatherData,
+  currentTemperatureUnit,
+  handleToggleSwitchChange,
+}) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -12,28 +17,38 @@ function Header({ handleAddClick, weatherData }) {
   return (
     <header className="header">
       <Link to="/">
-        <img className="header__logo" src={logo} alt="Header-Logo" />
+        <img className="header__logo" src={logo} alt="Logo" />
       </Link>
+
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
-      <ToggleSwitch />
-      <button
-        onClick={handleAddClick}
-        type="button"
-        className="header__add-clothes-btn"
-      >
-        + Add Clothes
-      </button>
+      <div className="header__actions">
+        <ToggleSwitch
+          currentTemperatureUnit={currentTemperatureUnit}
+          handleToggleSwitchChange={handleToggleSwitchChange}
+        />
 
-      <div className="header__user-container">
-        <Link to="/profile" className="header__profile-link">
-          <p className="header__username">Steven Haliburton </p>
-          <img src={avatar} alt="Username" className="header__avatar" />
-        </Link>
+        <button
+          onClick={handleAddClick}
+          type="button"
+          className="header__add-clothes-btn"
+        >
+          + Add Clothes
+        </button>
+
+        <div className="header__user-container">
+          <Link to="/profile" className="header__link">
+            <p className="header__username">Steven Haliburton</p>
+            <img
+              src={avatar}
+              alt="Terrence Tegegne"
+              className="header__avatar"
+            />
+          </Link>
+        </div>
       </div>
     </header>
   );
 }
-
 export default Header;
