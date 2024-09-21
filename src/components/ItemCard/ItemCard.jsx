@@ -12,6 +12,7 @@ function ItemCard({ item, onCardClick }) {
         className="card__image"
         src={item.link}
         alt={item.name}
+        // onError={(e) => console.error(`Error loading image: ${item.link}`, e)}
       />
     </li>
   );
