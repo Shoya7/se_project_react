@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "../App/App.css";
 import { coordinates, APIkey } from "../../utils/constants.js";
@@ -56,7 +56,7 @@ function App() {
     addItem(item)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
-        closeModal();
+        closeActiveModal();
       })
       .catch((err) => console.log(err));
   };
@@ -83,6 +83,7 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
+        console.log("API Response:", data);
         setClothingItems(data);
       })
       .catch(console.error);

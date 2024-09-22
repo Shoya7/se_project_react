@@ -59,6 +59,16 @@ export const weatherOptions = [
     condition: "storm",
     url: new URL("../assets/night/storm-night.png", import.meta.url).href,
   },
+  {
+    day: true,
+    condition: "warm",
+    url: new URL("../assets/day/warm.png", import.meta.url).href,
+  },
+  {
+    day: false,
+    condition: "warm",
+    url: new URL("../assets/night/warm-night.png", import.meta.url).href,
+  },
 ];
 
 export const defaultWeatherOptions = {

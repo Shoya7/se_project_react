@@ -5,16 +5,16 @@ function ItemCard({ item, onCardClick }) {
     onCardClick(item);
   };
   return (
-    <li className="card">
+    <div className="card">
       <h2 className="card__name">{item.name}</h2>
       <img
         onClick={handleCardClick}
         className="card__image"
-        src={item.link}
+        src={item.imageUrl}
         alt={item.name}
         // onError={(e) => console.error(`Error loading image: ${item.link}`, e)}
       />
-    </li>
+    </div>
   );
 }
 export default ItemCard;
