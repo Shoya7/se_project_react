@@ -71,6 +71,12 @@
       "weather": "",
       "imageUrl": "",
       "_id": 18
+    },
+    {
+      "name": "djdjd",
+      "weather": "warm",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 19
     }
   ]
 }
