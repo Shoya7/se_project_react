@@ -12,8 +12,22 @@ async function getItems() {
   return fetch(`${baseUrl}/items`).then(handleServerResponse);
 }
 
+// async function addItem({ name, imageUrl, weather }) {
+//   return fetch(`${baseUrl}/items`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({
+//       name,
+//       weather,
+//       imageUrl,
+//     }),
+//   }).then(handleServerResponse);
+// }
+
 async function addItem({ name, imageUrl, weather }) {
-  return fetch(`${baseUrl}/items`, {
+  const response = await fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +37,8 @@ async function addItem({ name, imageUrl, weather }) {
       weather,
       imageUrl,
     }),
-  }).then(handleServerResponse);
+  });
+  return handleServerResponse(response);
 }
 
 async function deleteItem(id) {

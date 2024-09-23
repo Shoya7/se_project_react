@@ -53,7 +53,7 @@ function App() {
   };
 
   const handleOnAddItem = (item) => {
-    addItem(item)
+    return addItem(item)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
         closeActiveModal();

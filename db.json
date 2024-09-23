@@ -19,12 +19,6 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Jacket.png?etag=f4bb188deaa25ac84ce2338be2d404ad"
     },
     {
-      "_id": 7,
-      "name": "Jeans",
-      "weather": "warm",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Jeans.png?etag=58345e8bef1ce5f95ac882e71d309e6c"
-    },
-    {
       "_id": 9,
       "name": "Sandals",
       "weather": "hot",
@@ -61,22 +55,166 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
     },
     {
-      "name": "",
-      "weather": "",
-      "imageUrl": "",
-      "_id": 17
+      "name": "ss",
+      "weather": "hot",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 58
+    },
+    {
+      "name": "d",
+      "weather": "hot",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 59
+    },
+    {
+      "name": "d",
+      "weather": "hot",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 60
+    },
+    {
+      "name": "d",
+      "weather": "hot",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 61
+    },
+    {
+      "name": "d",
+      "weather": "hot",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 62
+    },
+    {
+      "name": "d",
+      "weather": "cold",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 67
+    },
+    {
+      "name": "d",
+      "weather": "cold",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 68
+    },
+    {
+      "name": "d",
+      "weather": "cold",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 69
+    },
+    {
+      "name": "d",
+      "weather": "cold",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 70
+    },
+    {
+      "name": "d",
+      "weather": "cold",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 71
+    },
+    {
+      "name": "ss",
+      "weather": "cold",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 76
+    },
+    {
+      "name": "ss",
+      "weather": "cold",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 77
+    },
+    {
+      "name": "ss",
+      "weather": "cold",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 78
+    },
+    {
+      "name": "ss",
+      "weather": "cold",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 79
+    },
+    {
+      "name": "ss",
+      "weather": "cold",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 80
+    },
+    {
+      "name": "ss",
+      "weather": "cold",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 81
+    },
+    {
+      "name": "ss",
+      "weather": "cold",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 82
     },
     {
       "name": "",
       "weather": "",
       "imageUrl": "",
-      "_id": 18
+      "_id": 83
+    },
+    {
+      "name": "fd",
+      "weather": "warm",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 84
+    },
+    {
+      "name": "djdjd",
+      "weather": "cold",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 85
+    },
+    {
+      "name": "d",
+      "weather": "cold",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 86
+    },
+    {
+      "name": "ss",
+      "weather": "warm",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 87
+    },
+    {
+      "name": "ss",
+      "weather": "hot",
+      "imageUrl": "",
+      "_id": 88
+    },
+    {
+      "name": "d",
+      "weather": "warm",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 89
+    },
+    {
+      "name": "d",
+      "weather": "warm",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 90
+    },
+    {
+      "name": "ss",
+      "weather": "warm",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
+      "_id": 91
     },
     {
       "name": "djdjd",
       "weather": "warm",
       "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
-      "_id": 19
+      "_id": 92
     }
   ]
 }

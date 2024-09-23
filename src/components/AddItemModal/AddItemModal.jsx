@@ -40,10 +40,10 @@ const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
       })
       .catch((error) => {
         console.error("Error adding item:", error);
-      })
-      .finally(() => {
-        onClose();
       });
+    // .finally(() => {
+    //   onClose();
+    // });
   };
 
   function resetForm() {
