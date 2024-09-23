@@ -1,8 +1,8 @@
 const baseUrl = "http://localhost:3001";
 
-export function checkResponse(res) {
-  return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-}
+// export function checkResponse(res) {
+//   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+// }
 
 const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error:${res.status}`);
@@ -34,4 +34,4 @@ async function deleteItem(id) {
     },
   }).then(handleServerResponse);
 }
-export { getItems, addItem, deleteItem };
+export { getItems, addItem, deleteItem, handleServerResponse };

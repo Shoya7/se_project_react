@@ -20,10 +20,30 @@ const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
     setSelectedWeatherType(e.target.value);
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   onAddItem({ name, imageUrl, weather })
+  //     .then(() => {
+  //       resetForm();
+  //       onClose();
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error adding item:", error);
+  //     });
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, imageUrl, weather });
-    resetForm();
+    onAddItem({ name, imageUrl, weather })
+      .then(() => {
+        resetForm();
+      })
+      .catch((error) => {
+        console.error("Error adding item:", error);
+      })
+      .finally(() => {
+        onClose();
+      });
   };
 
   function resetForm() {

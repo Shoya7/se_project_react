@@ -1,3 +1,32 @@
+.clothes-section {
+  max-width: 100%;
+  overflow: hidden;
+  max-height: calc(100vh - 200px); /* Adjust this value as needed */
+  overflow-y: auto;
+}
+
+.cards__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  gap: 20px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.card__name {
+  position: relative;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  line-height: 20px;
+  padding: 2px 12px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
 .clothes-section__header {
   display: flex;
   justify-content: left;
