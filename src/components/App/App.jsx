@@ -1,7 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "../App/App.css";
-import { coordinates, APIkey } from "../../utils/constants.js";
+import {
+  coordinates,
+  APIkey,
+  defaultClothingItems,
+} from "../../utils/constants.js";
 import Header from "../../components/Header/Header.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import Main from "../../components/Main/Main.jsx";
@@ -12,7 +16,6 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import AddItemModal from "../../components/AddItemModal/AddItemModal.jsx";
 import { getItems, addItem, deleteItem } from "../../utils/api.js";
 import DeleteModal from "../DeleteModal/DeleteModal.jsx";
-
 function App() {
   const [weatherData, setWeatherData] = useState({
     type: "",
@@ -26,21 +29,17 @@ function App() {
     weather: "",
   });
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [clothingItems, setClothingItems] = useState([]);
-
+  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
   };
-
   const handleAddClick = () => {
     setActiveModal("create");
   };
-
   const closeActiveModal = () => {
     setActiveModal("");
   };
-
   const handleCardDelete = () => {
     deleteItem(selectedCard._id)
       .then(() => {
@@ -51,25 +50,22 @@ function App() {
       })
       .catch(console.error);
   };
-
-  const handleOnAddItem = (item) => {
-    return addItem(item)
+  const handleOnAddItem = (item, resetForm) => {
+    addItem(item)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
         closeActiveModal();
+        resetForm();
       })
       .catch((err) => console.log(err));
   };
-
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
-
   const handleDeleteCardClick = () => {
     setActiveModal("delete-confirmation");
   };
-
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
@@ -79,12 +75,12 @@ function App() {
       })
       .catch(console.error);
   }, []);
-
   useEffect(() => {
     getItems()
       .then((data) => {
         console.log("API Response:", data);
         setClothingItems(data);
+        console.log("API Response:", data);
       })
       .catch(console.error);
   }, []);
@@ -94,23 +90,19 @@ function App() {
       if (evt.key === "Escape" || evt.key === "esc" || evt.keyCode === 27) {
         closeActiveModal();
       }
-
       if (evt.type === "click" && evt.target.classList.contains("modal")) {
         closeActiveModal();
       }
     }
-
     if (activeModal !== "") {
       document.addEventListener("keydown", handleCloseMethods);
       document.addEventListener("click", handleCloseMethods);
     }
-
     return () => {
       document.removeEventListener("keydown", handleCloseMethods);
       document.removeEventListener("click", handleCloseMethods);
     };
   }, [activeModal]);
-
   return (
     <div className="page">
       <CurrentTemperatureUnitContext.Provider
@@ -140,16 +132,13 @@ function App() {
               }
             ></Route>
           </Routes>
-
           <Footer />
         </div>
-
         <AddItemModal
           onClose={closeActiveModal}
           isOpen={activeModal === "create"}
           onAddItem={handleOnAddItem}
         />
-
         <ItemModal
           activeModal={activeModal}
           card={selectedCard}
@@ -167,5 +156,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

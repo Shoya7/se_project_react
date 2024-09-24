@@ -22,28 +22,24 @@ const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
-  //   onAddItem({ name, imageUrl, weather })
-  //     .then(() => {
-  //       resetForm();
-  //       onClose();
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error adding item:", error);
-  //     });
+  //   const result = onAddItem({ name, imageUrl, weather });
+
+  //   if (result && typeof result.then === "function") {
+  //     result
+  //       .then(() => {
+  //         resetForm();
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error adding item:", error);
+  //       });
+  //   } else {
+  //     resetForm();
+  //   }
   // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, imageUrl, weather })
-      .then(() => {
-        resetForm();
-      })
-      .catch((error) => {
-        console.error("Error adding item:", error);
-      });
-    // .finally(() => {
-    //   onClose();
-    // });
+    onAddItem({ name, imageUrl, weather }, resetForm);
   };
 
   function resetForm() {
@@ -59,7 +55,7 @@ const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
-      <button type="button" className="modal__close" onClick={onClose}></button>
+      {/* <button type="button" className="modal__close" onClick={onClose}></button> */}
       <label htmlFor="name" className="modal__label">
         Name{" "}
         <input
