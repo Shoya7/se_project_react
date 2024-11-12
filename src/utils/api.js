@@ -8,20 +8,6 @@ async function getItems() {
   return fetch(`${baseUrl}/items`).then(handleServerResponse);
 }
 
-// async function addItem({ name, imageUrl, weather }) {
-//   return fetch(`${baseUrl}/items`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({
-//       name,
-//       weather,
-//       imageUrl,
-//     }),
-//   }).then(handleServerResponse);
-// }
-
 async function addItem({ name, imageUrl, weather }) {
   const response = await fetch(`${baseUrl}/items`, {
     method: "POST",
@@ -45,4 +31,42 @@ async function deleteItem(id) {
     },
   }).then(handleServerResponse);
 }
-export { getItems, addItem, deleteItem, handleServerResponse };
+
+const updateProfile = (userData, token) => {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(userData),
+  }).then(handleServerResponse);
+};
+const addCardLike = (id, token) => {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  }).then(handleServerResponse);
+};
+const removeCardLike = (id, token) => {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  }).then(handleServerResponse);
+};
+
+export {
+  getItems,
+  addItem,
+  deleteItem,
+  handleServerResponse,
+  updateProfile,
+  addCardLike,
+  removeCardLike,
+};

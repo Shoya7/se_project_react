@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
+import "../ModalWithForm/ModalWithForm.css";
+import "./AddItemModal.css";
 
-const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
+const AddItemModal = ({ closeActiveModal, addItem, isOpen }) => {
   const [name, setName] = useState("");
   const [imageUrl, setUrl] = useState("");
   const [weather, setSelectedWeatherType] = useState("");
@@ -20,26 +22,9 @@ const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
     setSelectedWeatherType(e.target.value);
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const result = onAddItem({ name, imageUrl, weather });
-
-  //   if (result && typeof result.then === "function") {
-  //     result
-  //       .then(() => {
-  //         resetForm();
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error adding item:", error);
-  //       });
-  //   } else {
-  //     resetForm();
-  //   }
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, imageUrl, weather }, resetForm);
+    addItem({ name, imageUrl, weather }, resetForm);
   };
 
   function resetForm() {
@@ -51,11 +36,10 @@ const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
   return (
     <ModalWithForm
       title="New garment"
-      onClose={onClose}
+      onClose={closeActiveModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
-      {/* <button type="button" className="modal__close" onClick={onClose}></button> */}
       <label htmlFor="name" className="modal__label">
         Name{" "}
         <input

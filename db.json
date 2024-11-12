@@ -101,24 +101,17 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
-    },
+    }
+  ],
+  "users": [
     {
-      "name": "d",
-      "weather": "warm",
-      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
-      "_id": 17
-    },
-    {
-      "name": "fd",
-      "weather": "warm",
-      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
-      "_id": 18
-    },
-    {
-      "name": "g",
-      "weather": "warm",
-      "imageUrl": "https://cdn.pixabay.com/photo/2023/05/31/17/30/camera-8031914_1280.jpg",
-      "_id": 19
+      "email": {
+        "name": "Steven",
+        "email": "Haliburton7@gmail.com",
+        "password": "Broncos",
+        "avatar": "https://media.istockphoto.com/id/1847121853/photo/futuristic-digital-background-with-unique-glowing-yellow-shield-protection-against-hacker.webp?a=1&b=1&s=612x612&w=0&k=20&c=UVRk-TGBXjlo4ckS0F5BTZRpzed3fqAbzidSUJiURms="
+      },
+      "_id": 1
     }
   ]
 }
