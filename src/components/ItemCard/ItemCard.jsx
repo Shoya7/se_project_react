@@ -4,6 +4,7 @@ function ItemCard({ item, onCardClick }) {
   const handleCardClick = () => {
     onCardClick(item);
   };
+
   return (
     <div className="card">
       <h2 className="card__name">{item.name}</h2>
@@ -12,7 +13,6 @@ function ItemCard({ item, onCardClick }) {
         className="card__image"
         src={item.imageUrl}
         alt={item.name}
-        // onError={(e) => console.error(`Error loading image: ${item.link}`, e)}
       />
     </div>
   );

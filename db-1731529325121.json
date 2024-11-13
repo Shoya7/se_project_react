@@ -61,6 +61,12 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sandals.png?etag=9bea85a77c0306586d2b71a33b626d41"
     },
     {
+      "_id": 10,
+      "name": "Scarf",
+      "weather": "cold",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Scarf.png?etag=74efbee93810c926b5507e862c6cb76c"
+    },
+    {
       "_id": 11,
       "name": "Shorts",
       "weather": "Hot",
@@ -106,15 +112,6 @@
         "avatar": "https://media.istockphoto.com/id/1847121853/photo/futuristic-digital-background-with-unique-glowing-yellow-shield-protection-against-hacker.webp?a=1&b=1&s=612x612&w=0&k=20&c=UVRk-TGBXjlo4ckS0F5BTZRpzed3fqAbzidSUJiURms="
       },
       "_id": 1
-    },
-    {
-      "email": {
-        "name": "Steven ",
-        "email": "Haliburton7@gmail.com",
-        "password": "Broncos",
-        "avatar": "https://media.istockphoto.com/id/1557118048/photo/a-concept-that-expresses-the-hyper-connected-society-of-modern-society-by-connecting-people.jpg?s=1024x1024&w=is&k=20&c=8f8F0FEig-UIwhFFl4uEW5RUpINOlw5rd-qols04UF8="
-      },
-      "_id": 2
     }
   ]
 }

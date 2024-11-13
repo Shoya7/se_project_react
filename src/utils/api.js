@@ -5,9 +5,12 @@ const handleServerResponse = (res) => {
 };
 
 async function getItems() {
-  return fetch(`${baseUrl}/items`).then(handleServerResponse);
+  console.log("Fetching from:", `${baseUrl}/items`);
+  const response = await fetch(`${baseUrl}/items`);
+  const data = await handleServerResponse(response);
+  console.log("Items received:", data);
+  return data;
 }
-
 async function addItem({ name, imageUrl, weather }) {
   const response = await fetch(`${baseUrl}/items`, {
     method: "POST",

@@ -9,44 +9,42 @@
   border: 2px solid black;
   width: 50px;
   height: 30px;
-  /* outline: none; */
   appearance: none;
+  cursor: pointer;
 }
 
 .switch__slider {
   border-radius: 20px;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   background-color: black;
   color: white;
   cursor: pointer;
   position: absolute;
-}
-.switch__slider-F {
-  top: 0;
-  left: 19px;
-}
-
-.switch__slider-C {
-  top: 0;
-  left: 1px;
+  left: 2px;
+  top: 2px;
+  transition: transform 0.3s ease;
 }
 
-.switch__active {
-  color: red;
-  font-size: 16px;
+.switch__box:checked + .switch__slider {
+  transform: translateX(20px);
 }
 
 .switch__temp-F {
   position: absolute;
   top: -9px;
   right: 6px;
-  color: #f3f3f3;
+  color: black;
 }
 
 .switch__temp-C {
   position: absolute;
   top: -9px;
   left: 8px;
-  color: #f3f3f3;
+  color: black;
+}
+
+.switch__active {
+  color: black;
+  font-weight: bold;
 }

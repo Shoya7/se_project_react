@@ -16,6 +16,18 @@ function Main({
     CurrentTemperatureUnitContext
   );
 
+  const getWeatherType = (temp) => {
+    if (temp >= 86) {
+      return "hot";
+    } else if (temp >= 66 && temp <= 85) {
+      return "warm";
+    } else {
+      return "cold";
+    }
+  };
+
+  const weatherType = getWeatherType(weatherData.temp[currentTemparatureUnit]);
+
   return (
     <main>
       <WeatherCard weatherData={weatherData} />
@@ -26,22 +38,18 @@ function Main({
         </p>
         <ul className="cards__list">
           {clothingItems
-            .filter((item) => {
-              return item.weather === weatherData.warm;
-            })
-            .map((item) => {
-              return (
-                <ItemCard
-                  key={item._id}
-                  item={item}
-                  onCardClick={handleCardClick}
-                  clothingItems={clothingItems}
-                  handleCardLike={handleCardLike}
-                  isLiked={isLiked}
-                  isLoggedIn={isLoggedIn}
-                />
-              );
-            })}
+            .filter((item) => item.weather === weatherType)
+            .map((item) => (
+              <ItemCard
+                key={item._id}
+                item={item}
+                onCardClick={handleCardClick}
+                clothingItems={clothingItems}
+                handleCardLike={handleCardLike}
+                isLiked={isLiked}
+                isLoggedIn={isLoggedIn}
+              />
+            ))}
         </ul>
       </section>
     </main>
