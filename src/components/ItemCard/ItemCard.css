@@ -1,38 +1,52 @@
-.cards__text {
-  margin-top: 40px;
-  margin-bottom: 34px;
-}
-
-.cards__list {
-  display: flex;
-  flex-direction: row;
-  width: 1360px;
-  /* height: 387px; */
-  padding: 0;
-  margin-left: 0px;
-  margin-right: 40px;
-  margin-top: 0px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.card__image {
-  height: 326px;
+.card {
   width: 323px;
-  border-radius: 10%;
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgba(0, 0, 0, 0.3);
+  height: 326px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 15px;
+  margin: 0;
+  gap: 10px;
 }
 
 .card__name {
+  top: 15px;
   margin: 0;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: #ffff;
+  padding: 2px 12px;
   color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  font-family: "CabinetGrotesk-Bold", sans-serif;
   font-size: 16px;
   line-height: 20px;
-  padding: 2px 12px;
-  margin-top: 15px;
-  margin-left: 116px;
+}
+.card__image {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.like-button__icon {
+  position: relative;
+  border: none;
+  background-color: transparent;
+  width: 18px;
+  height: 15px;
+  padding: 0;
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
 }

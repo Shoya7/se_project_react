@@ -3,14 +3,14 @@ import logo from "../../assets/Logo.png";
 import { Link } from "react-router-dom";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { useContext } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 import avatar from "../../assets/avatar.png";
 
 function Header({
   handleAddClick,
   weatherData,
   currentTemperatureUnit,
-  handleToggleSwitchChange,
+  handleToggleSwitchState,
   handleRegisterModal,
   handleLoginModal,
   isLoggedIn,
@@ -34,29 +34,28 @@ function Header({
         <div className="header__actions">
           <ToggleSwitch
             currentTemperatureUnit={currentTemperatureUnit}
-            handleToggleSwitchChange={handleToggleSwitchChange}
+            handleToggleSwitchState={handleToggleSwitchState}
           />
 
           <button
-            onClick={() => {
-              handleAddClick;
-            }}
+            onClick={handleAddClick}
             type="button"
             className="header__add-clothes-btn"
           >
             + Add Clothes
           </button>
 
-          <div className="header__user-container">
-            <Link to="/profile" className="header__link">
+          <Link to="/profile" className="header__link">
+            <div className="header__user-container">
               <p className="header__username">{currentUser.name}</p>
+
               <img
                 src={currentUser.avatar}
                 alt={currentUser.name}
                 className="header__avatar"
               />
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
       </header>
     );

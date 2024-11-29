@@ -1,49 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "../ModalWithForm/ModalWithForm.css";
 import "./RegisterModal.css";
 
 const RegisterModal = ({
   isOpen,
-  onRegister,
+  onSignUp,
+  buttonClass = "modal__submit",
   closeActiveModal,
-  onLogin = () => {},
+  openLoginModal,
 }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState("");
-
-  function handleNameChange(e) {
-    setName(e.target.value);
-  }
-
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
-
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-  }
-
-  function handleAvatarChange(e) {
-    setAvatar(e.target.value);
-  }
+  const [isButtonActive, setIsButtonActive] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegister({ email, password, name, avatar });
+    onSignUp({ email, password, name, avatar });
   };
+
+  useEffect(() => {
+    setIsButtonActive(
+      email.trim() !== "" &&
+        password.trim() !== "" &&
+        name.trim() !== "" &&
+        avatar.trim() !== ""
+    );
+  }, [email, password, name, avatar]);
 
   return (
     <ModalWithForm
       isOpen={isOpen}
       title="Sign Up"
       buttonText="Sign Up"
-      onClose={closeActiveModal}
+      closeActiveModal={closeActiveModal}
       onSubmit={handleSubmit}
+      obuttonClass={`modal__submit ${
+        isButtonActive ? "modal__submit_active" : ""
+      }`}
+      handleCloseModal={closeActiveModal}
     >
-      <label htmlFor="email" className="modal__label">
+      <label className="modal__label">
         Email*{""}
         <input
           type="email"
@@ -52,20 +51,20 @@ const RegisterModal = ({
           name="email"
           placeholder="Email"
           value={email}
-          onChange={handleEmailChange}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label className="modal__label">
         Password*{""}
         <input
           type="password"
           className="modal__input"
-          id="password"
+          id="registerPassword"
           name="password"
           placeholder="Password"
           value={password}
-          onChange={handlePasswordChange}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
       </label>
@@ -74,11 +73,11 @@ const RegisterModal = ({
         <input
           type="text"
           className="modal__input"
-          id="name"
+          id="registerName"
           name="name"
           placeholder="Name"
           value={name}
-          onChange={handleNameChange}
+          onChange={(e) => setName(e.target.value)}
           required
         />
       </label>
@@ -86,24 +85,33 @@ const RegisterModal = ({
         Avatar URL*{""}
         <input
           type="url"
-          className="modal__input"
-          id="avatar"
+          className="modal__input modal__input_signUp "
+          id="avatarUrl"
           name="avatar"
           placeholder="Avatar URL"
-          value={avatar || ""}
-          onChange={handleAvatarChange}
+          value={avatar}
+          onChange={(e) => setAvatar(e.target.value)}
           required
         />
       </label>
 
-      <button
-        type="button"
-        onClick={onLogin}
-        className="modal__submit modal__submit_login modal__submit-SingUp"
-      >
-        {" "}
-        or Log In
-      </button>
+      <div className="modal__buttons-wrapper">
+        <button
+          type="submit"
+          className={`${buttonClass} ${
+            isButtonActive ? "modal__submit_filled" : ""
+          }`}
+        >
+          Sign Up
+        </button>
+        <button
+          type="button"
+          className="modal__or-login-btn"
+          onClick={openLoginModal}
+        >
+          or Log In
+        </button>
+      </div>
     </ModalWithForm>
   );
 };

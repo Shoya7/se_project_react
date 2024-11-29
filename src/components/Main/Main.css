@@ -16,15 +16,3 @@
   line-height: 24.8px;
   text-align: left;
 }
-
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: #f3f3f3;
-}
-
-.footer {
-  margin-top: auto;
-  padding-top: 150px;
-}

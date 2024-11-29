@@ -1,33 +1,10 @@
-import { handleServerResponse } from "./api.js";
+import { handleServerResponse } from "../utils/api.js";
 
-export const getWeather = ({ latitude, longitude }, APIkey) => {
+export const getWeather = async ({ latitude, longitude }, APIkey) => {
   return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}
-`
+    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
   ).then(handleServerResponse);
 };
-// .then((res) => {
-//   if (res.ok) {
-//     return res.json();
-//   } else {
-//     return Promise.reject(`Error: ${res.status}`);
-//   }
-// });
-
-// export const getWeather = ({ latitude, longitude }, APIkey) => {
-//   return fetch(
-//     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
-//   ).then(checkResponse);
-//   /*(
-// 		(res) => {
-// 		if (res.ok) {
-// 			return res.json();
-// 		} //end if
-// 		else {
-// 			return Promise.reject(`Error: ${res.status}`);
-// 		} //end else
-// 	});*/
-// };
 
 export const filterWeatherData = (data) => {
   const result = {};
@@ -36,6 +13,7 @@ export const filterWeatherData = (data) => {
     F: Math.round(data.main.temp),
     C: Math.round(((data.main.temp - 32) * 5) / 9),
   };
+
   result.type = getWeatherType(result.temp.F);
   result.condition = data.weather[0].main.toLowerCase();
   result.isDay = isDay(data.sys, Date.now());
@@ -46,10 +24,10 @@ const isDay = ({ sunrise, sunset }, now) => {
   return sunrise * 1000 < now && now < sunset * 1000;
 };
 
-const getWeatherType = (temp) => {
-  if (temp > 86) {
+const getWeatherType = (temperature) => {
+  if (temperature > 86) {
     return "hot";
-  } else if (temp >= 66 && temp < 86) {
+  } else if (temperature >= 66 && temperature < 86) {
     return "warm";
   } else {
     return "cold";

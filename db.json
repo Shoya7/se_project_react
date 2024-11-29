@@ -115,6 +115,15 @@
         "avatar": "https://media.istockphoto.com/id/1557118048/photo/a-concept-that-expresses-the-hyper-connected-society-of-modern-society-by-connecting-people.jpg?s=1024x1024&w=is&k=20&c=8f8F0FEig-UIwhFFl4uEW5RUpINOlw5rd-qols04UF8="
       },
       "_id": 2
+    },
+    {
+      "email": {
+        "name": "Steven ",
+        "email": "Haliburton7@gmail.com",
+        "password": "Broncos",
+        "avatar": "https://media.istockphoto.com/id/2054515408/photo/satisfaction-document-checklist-database-contract-checkbox-insurance-manager-technology.webp?a=1&b=1&s=612x612&w=0&k=20&c=83ue1z45wF8KtiDmqbPhkPteO9nUim2ThthQZjoiwa4="
+      },
+      "_id": 3
     }
   ]
 }

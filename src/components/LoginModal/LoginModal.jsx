@@ -1,36 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+
 import "../ModalWithForm/ModalWithForm.css";
 import "./LoginModal.css";
 
-const LoginModal = ({ isOpen, closeActiveModal, onLogIn, onSignUp }) => {
+const LoginModal = ({
+  isOpen,
+  closeActiveModal,
+  buttonClass = "modal__submit",
+  onLogIn,
+  openRegisterModal,
+}) => {
   const [data, setData] = useState({
     email: "",
     password: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  const [isButtonActive, setIsButtonActive] = useState(false);
+
+  useEffect(() => {
+    setIsButtonActive(data.email.trim() !== "" && data.password.trim() !== "");
+  }, [data.email, data.password]);
+
+  useEffect(() => {
+    setData({ email: "", password: "" });
+  }, [isOpen]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     onLogIn(data);
   };
 
   return (
     <ModalWithForm
-      title="Log in"
-      name="login"
-      buttonText="Log in"
+      title="Log In"
+      buttonText="Log In"
       isOpen={isOpen}
       onClose={closeActiveModal}
       onSubmit={handleSubmit}
+      buttonClass={`modal__submit ${
+        isButtonActive ? "modal__submit_filled" : ""
+      }`}
     >
       <label className="modal__label">
         Email{" "}
@@ -41,7 +51,9 @@ const LoginModal = ({ isOpen, closeActiveModal, onLogIn, onSignUp }) => {
           name="email"
           placeholder="Email"
           value={data.email}
-          onChange={handleChange}
+          onChange={(e) =>
+            setData((prevData) => ({ ...prevData, email: e.target.value }))
+          }
           required
         />
       </label>
@@ -49,22 +61,34 @@ const LoginModal = ({ isOpen, closeActiveModal, onLogIn, onSignUp }) => {
         Password
         <input
           type="password"
-          className="modal__input"
+          className="modal__input modal__input-password"
           id="user-password"
           name="password"
           placeholder="Password"
           value={data.password}
-          onChange={handleChange}
+          onChange={(e) =>
+            setData((prevData) => ({ ...prevData, password: e.target.value }))
+          }
           required
         />
       </label>
-      <button
-        type="button"
-        onClick={onSignUp}
-        className="modal__submit modal__submit_signup"
-      >
-        or Sign Up
-      </button>
+      <div className="modal__buttons-wrapper">
+        <button
+          type="submit"
+          className={`${buttonClass} ${
+            isButtonActive ? "modal__submit_filled" : ""
+          }`}
+        >
+          Log In
+        </button>
+        <button
+          type="button"
+          className="modal__or-signup-btn"
+          onClick={openRegisterModal}
+        >
+          or Sign Up
+        </button>
+      </div>
     </ModalWithForm>
   );
 };

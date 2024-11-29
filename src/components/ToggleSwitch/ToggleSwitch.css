@@ -1,50 +1,50 @@
 .switch {
   display: flex;
   position: relative;
-  margin: 0 0 0 700px;
 }
 
 .switch__box {
   border-radius: 25px;
-  border: 2px solid black;
+  border: 2px solid #7e7e7e;
   width: 50px;
   height: 30px;
   appearance: none;
-  cursor: pointer;
 }
 
 .switch__slider {
   border-radius: 20px;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   background-color: black;
   color: white;
+  text-align: center;
   cursor: pointer;
   position: absolute;
-  left: 2px;
-  top: 2px;
-  transition: transform 0.3s ease;
 }
 
-.switch__box:checked + .switch__slider {
-  transform: translateX(20px);
+.switch__slider-F {
+  top: 3x;
+  left: 20px;
+}
+
+.switch__slider-C {
+  left: 1px;
+}
+
+.switch__active {
+  font-size: 16px;
+  color: rgba(243, 243, 243, 1);
 }
 
 .switch__temp-F {
   position: absolute;
-  top: -9px;
-  right: 6px;
-  color: black;
+  top: -8px;
+  left: 32px;
 }
 
 .switch__temp-C {
   position: absolute;
-  top: -9px;
+  color: rgba(243, 243, 243, 1);
+  top: -8px;
   left: 8px;
-  color: black;
-}
-
-.switch__active {
-  color: black;
-  font-weight: bold;
 }

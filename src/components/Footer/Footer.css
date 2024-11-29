@@ -1,15 +1,21 @@
-.footer__container {
+.footer {
+  padding-bottom: 24px;
   display: flex;
   justify-content: space-between;
-  font-size: 16px;
-  /* margin-top: 171px; */
-  padding-bottom: 32px;
+  font-family: "Cabinet Grotesk";
+  font-weight: 500;
 }
 
 .footer__copyright {
-  margin: 0;
+  margin-top: 85px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 .footer__year {
-  margin: 0;
+  margin-top: 85px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
 }
