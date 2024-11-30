@@ -75,24 +75,37 @@ function App() {
 
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
-    if (!isLiked) {
-      addCardLike(id, token)
-        .then((updatedCard) => {
-          setClothingItems((cards) =>
-            cards.map((item) => (item._id === id ? updatedCard.data : item))
-          );
-        })
-        .catch((err) => console.log(err));
-    } else {
-      removeCardLike(id, token)
-        .then((updatedCard) => {
-          setClothingItems((cards) =>
-            cards.map((item) => (item._id === id ? updatedCard.data : item))
-          );
-        })
-        .catch(console.error);
-    }
+    const likeRequest = isLiked ? removeCardLike : addCardLike;
+
+    likeRequest(id, token)
+      .then((updatedCard) => {
+        setClothingItems((cards) =>
+          cards.map((item) => (item._id === id ? updatedCard.data : item))
+        );
+      })
+      .catch(console.error);
   };
+
+  // const handleCardLike = ({ id, isLiked }) => {
+  //   const token = localStorage.getItem("jwt");
+  //   if (!isLiked) {
+  //     addCardLike(id, token)
+  //       .then((updatedCard) => {
+  //         setClothingItems((cards) =>
+  //           cards.map((item) => (item._id === id ? updatedCard.data : item))
+  //         );
+  //       })
+  //       .catch((err) => console.log(err));
+  //   } else {
+  //     removeCardLike(id, token)
+  //       .then((updatedCard) => {
+  //         setClothingItems((cards) =>
+  //           cards.map((item) => (item._id === id ? updatedCard.data : item))
+  //         );
+  //       })
+  //       .catch(console.error);
+  //   }
+  // };
 
   const handleCardDelete = () => {
     const token = localStorage.getItem("jwt");
@@ -122,19 +135,29 @@ function App() {
       });
   };
 
+  // const handleAddItem = (newItem) => {
+  //   const token = localStorage.getItem("jwt");
+
+  //   addItem(newItem, token)
+  //     .then((response) => {
+  //       const item = response.data;
+  //       setClothingItems((prevItems) => [item, ...prevItems]);
+  //       closeActiveModal();
+  //       navigate("/profile");
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error adding item:", error);
+  //     });
+  // };
+
   const handleAddItem = (newItem) => {
     const token = localStorage.getItem("jwt");
-
     addItem(newItem, token)
       .then((response) => {
-        const item = response.data;
-        setClothingItems((prevItems) => [item, ...prevItems]);
+        setClothingItems((prevItems) => [response.data, ...prevItems]);
         closeActiveModal();
-        navigate("/profile");
       })
-      .catch((error) => {
-        console.error("Error adding item:", error);
-      });
+      .catch(console.error);
   };
 
   const handleToggleSwitchState = () => {

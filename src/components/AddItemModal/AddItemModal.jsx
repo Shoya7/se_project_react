@@ -29,10 +29,19 @@ const AddItemModal = ({ closeActiveModal, addItem, isOpen }) => {
     }
   }, [isOpen]);
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   addItem({ name, imageUrl, weather, resetForm });
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    addItem({ name, imageUrl, weather, resetForm });
+    addItem({
+      name,
+      imageUrl,
+      weather,
+    });
   };
 
   function resetForm() {
