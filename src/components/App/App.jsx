@@ -86,41 +86,16 @@ function App() {
       .catch(console.error);
   };
 
-  // const handleCardLike = ({ id, isLiked }) => {
-  //   const token = localStorage.getItem("jwt");
-  //   if (!isLiked) {
-  //     addCardLike(id, token)
-  //       .then((updatedCard) => {
-  //         setClothingItems((cards) =>
-  //           cards.map((item) => (item._id === id ? updatedCard.data : item))
-  //         );
-  //       })
-  //       .catch((err) => console.log(err));
-  //   } else {
-  //     removeCardLike(id, token)
-  //       .then((updatedCard) => {
-  //         setClothingItems((cards) =>
-  //           cards.map((item) => (item._id === id ? updatedCard.data : item))
-  //         );
-  //       })
-  //       .catch(console.error);
-  //   }
-  // };
-
   const handleCardDelete = () => {
     const token = localStorage.getItem("jwt");
     deleteItem(selectedCard, token)
       .then(() => {
-        const newClothingItems = clothingItems.filter(
-          (cardItem) => cardItem._id !== selectedCard._id
+        setClothingItems((items) =>
+          items.filter((item) => item._id !== selectedCard._id)
         );
-        setClothingItems(newClothingItems);
-        setSelectedCard({});
         closeActiveModal();
       })
-      .catch((error) => {
-        console.error("Error deleting item:", error);
-      });
+      .catch(console.error);
   };
 
   const onEditProfileSubmit = ({ name, avatar }) => {
@@ -134,21 +109,6 @@ function App() {
         console.error("Error updating profile:", error);
       });
   };
-
-  // const handleAddItem = (newItem) => {
-  //   const token = localStorage.getItem("jwt");
-
-  //   addItem(newItem, token)
-  //     .then((response) => {
-  //       const item = response.data;
-  //       setClothingItems((prevItems) => [item, ...prevItems]);
-  //       closeActiveModal();
-  //       navigate("/profile");
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error adding item:", error);
-  //     });
-  // };
 
   const handleAddItem = (newItem) => {
     const token = localStorage.getItem("jwt");
@@ -177,19 +137,22 @@ function App() {
   };
 
   const onLogIn = ({ email, password }) => {
-    console.log("login");
     auth
       .logIn({ email, password })
       .then((data) => {
-        console.log("data", data);
-
-        localStorage.setItem("jwt", data.token);
-        getUserProfile(data.token).then((res) => {
-          console.log(res);
-          setCurrentUser(res);
-          setIsLoggedIn(true);
-          navigate("/profile");
-        });
+        if (data.token) {
+          localStorage.setItem("jwt", data.token);
+          return getUserProfile(data.token);
+        }
+      })
+      .then((userInfo) => {
+        setCurrentUser(userInfo);
+        setIsLoggedIn(true);
+        navigate("/profile");
+        return getItems();
+      })
+      .then((items) => {
+        setClothingItems(items);
         closeActiveModal();
       })
       .catch(console.error);
